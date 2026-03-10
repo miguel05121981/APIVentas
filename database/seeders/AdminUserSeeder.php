@@ -37,7 +37,7 @@ class AdminUserSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'email_verified_at' => now(),
                 'first_name' => 'Miguel',
-                'last_name' => 'Castañeda',
+                'last_name' => 'Castañeda Duran',
             ]
         );
     }
