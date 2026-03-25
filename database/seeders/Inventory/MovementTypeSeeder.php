@@ -1,50 +1,51 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Inventory;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class LocationTypeSeeder extends Seeder
+use App\Models\Inventory\MovementType;
+use Illuminate\Support\Facades\DB;
+
+class MovementTypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('location_type')->insert([
+        MovementType::updateOrCreate(
+            ['name' => 'Entry'],
             [
-                'name' => 'Office',
                 'user_create' => 1,
                 'user_update' => 1,
                 'active' => true,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => 'Warehouse',
-                'user_create' => 1,
-                'user_update' => 1,
-                'active' => true,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => 'Store',
-                'user_create' => 1,
-                'user_update' => 1,
-                'active' => true,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => 'Data Center',
-                'user_create' => 1,
-                'user_update' => 1,
-                'active' => true,
-                'created_at' => now(),
-                'updated_at' => now()
             ]
-        ]);
+        );
+        MovementType::updateOrCreate(
+            ['name' => 'Exit'],
+            [
+                'user_create' => 1,
+                'user_update' => 1,
+                'active' => true,
+            ]
+        );
+        MovementType::updateOrCreate(
+            ['name' => 'Transfer'],
+            [
+                'user_create' => 1,
+                'user_update' => 1,
+                'active' => true,
+            ]
+        );
+        MovementType::updateOrCreate(
+            ['name' => 'Adjustment'],
+            [
+                'user_create' => 1,
+                'user_update' => 1,
+                'active' => true,
+            ]
+        );
     }
 }

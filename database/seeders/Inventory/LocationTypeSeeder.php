@@ -1,50 +1,53 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Inventory;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class MovementTypeSeeder extends Seeder
+use App\Models\Inventory\LocationType;
+use Illuminate\Support\Facades\DB;
+
+class LocationTypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('movement_type')->insert([
+        LocationType::updateOrCreate(
+            ['name' => 'Office'],
             [
-                'name' => 'Entry',
                 'user_create' => 1,
                 'user_update' => 1,
                 'active' => true,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => 'Exit',
-                'user_create' => 1,
-                'user_update' => 1,
-                'active' => true,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => 'Transfer',
-                'user_create' => 1,
-                'user_update' => 1,
-                'active' => true,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => 'Adjustment',
-                'user_create' => 1,
-                'user_update' => 1,
-                'active' => true,
-                'created_at' => now(),
-                'updated_at' => now()
             ]
-        ]);
+        );
+
+        LocationType::updateOrCreate(
+            ['name' => 'Warehouse'],
+            [
+                'user_create' => 1,
+                'user_update' => 1,
+                'active' => true,
+            ]
+        );
+
+        LocationType::updateOrCreate(
+            ['name' => 'Store'],
+            [
+                'user_create' => 1,
+                'user_update' => 1,
+                'active' => true,
+            ]
+        );
+        LocationType::updateOrCreate(
+            ['name' => 'Data Center'],
+            [
+                'user_create' => 1,
+                'user_update' => 1,
+                'active' => true,
+            ]
+        );
     }
 }

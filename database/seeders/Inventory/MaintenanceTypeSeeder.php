@@ -1,9 +1,12 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Inventory;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
+use App\Models\Inventory\MaintenanceType;
+use Illuminate\Support\Facades\DB;
 
 class MaintenanceTypeSeeder extends Seeder
 {
@@ -12,39 +15,37 @@ class MaintenanceTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('maintenance_type')->insert([
+        MaintenanceType::updateOrCreate(
+            ['name' => 'Preventive'],
             [
-                'name' => 'Preventive',
                 'user_create' => 1,
                 'user_update' => 1,
                 'active' => true,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => 'Corrective',
-                'user_create' => 1,
-                'user_update' => 1,
-                'active' => true,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => 'Predictive',
-                'user_create' => 1,
-                'user_update' => 1,
-                'active' => true,
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
-                'name' => 'Inspection',
-                'user_create' => 1,
-                'user_update' => 1,
-                'active' => true,
-                'created_at' => now(),
-                'updated_at' => now()
             ]
-        ]);
+        );
+        MaintenanceType::updateOrCreate(
+            ['name' => 'Corrective'],
+            [
+                'user_create' => 1,
+                'user_update' => 1,
+                'active' => true,
+            ]
+        );
+        MaintenanceType::updateOrCreate(
+            ['name' => 'Predictive'],
+            [
+                'user_create' => 1,
+                'user_update' => 1,
+                'active' => true,
+            ]
+        );
+        MaintenanceType::updateOrCreate(
+            ['name' => 'Inspection'],
+            [
+                'user_create' => 1,
+                'user_update' => 1,
+                'active' => true,
+            ]
+        );
     }
 }

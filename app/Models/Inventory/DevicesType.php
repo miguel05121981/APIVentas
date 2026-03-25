@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Inventory;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
 
-class MaintenanceType extends Model
+class DevicesType extends Model
 {
-    protected $table = 'maintenance_type';
+    protected $table = 'devices_type';
 
     protected $fillable = [
         'name',
@@ -15,18 +14,11 @@ class MaintenanceType extends Model
         'user_update',
         'active'
     ];
-
-    /**
-     * Usuario que creó el registro
-     */
     public function userCreate()
     {
         return $this->belongsTo(User::class, 'user_create');
     }
 
-    /**
-     * Usuario que actualizó el registro
-     */
     public function userUpdate()
     {
         return $this->belongsTo(User::class, 'user_update');

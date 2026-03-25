@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Inventory;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
-class LocationType extends Model
+class MaintenanceType extends Model
 {
-    protected $table = 'location_type';
+    protected $table = 'maintenance_type';
 
     protected $fillable = [
         'name',

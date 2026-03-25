@@ -21,7 +21,11 @@ class DatabaseSeeder extends Seeder
             AdminUserSeeder::class,
             MenuSeeder::class,
             PermissionSeeder::class,
-            PermissionRolSeeder::class
+            PermissionRolSeeder::class,
+            Inventory\DeviceTypeSeeder::class,
+            Inventory\LocationTypeSeeder::class,
+            Inventory\MaintenanceTypeSeeder::class,
+            Inventory\MovementTypeSeeder::class
         ]);
     }
 }
